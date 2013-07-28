@@ -9,7 +9,7 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, vendor/carbon/config/common_phone.mk)
 
 # Inherit CDMA stuff
-$(call inherit-product, vendor/carbon/config/cdma.mk)
+$(call inherit-product, vendor/carbon/config/common_cdma.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/epicmtd/full_epicmtd.mk)
