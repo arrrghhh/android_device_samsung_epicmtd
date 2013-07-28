@@ -5,18 +5,18 @@ PRODUCT_RELEASE_NAME := EpicMTD
 PRODUCT_COPY_FILES += \
     device/samsung/epicmtd/prebuilt/media/480.zip:system/media/bootanimation.zip
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common Carbon stuff.
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
 
 # Inherit CDMA stuff
-$(call inherit-product, vendor/cm/config/cdma.mk)
+$(call inherit-product, vendor/carbon/config/cdma.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/epicmtd/full_epicmtd.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := epicmtd
-PRODUCT_NAME := cm_epicmtd
+PRODUCT_NAME := carbon_epicmtd
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SPH-D700
 PRODUCT_MANUFACTURER := samsung
