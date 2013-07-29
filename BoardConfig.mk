@@ -80,6 +80,7 @@ BOARD_CUSTOM_VSYNC_IOCTL := true
 # Define kernel config for inline building
 TARGET_KERNEL_CONFIG := cyanogenmod_epicmtd_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/epicmtd/
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6/bin/arm-eabi-
 
 # Fallback
 TARGET_PREBUILT_KERNEL := device/samsung/epicmtd/kernel
