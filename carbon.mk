@@ -1,6 +1,10 @@
 # Release name
 PRODUCT_RELEASE_NAME := EpicMTD
 
+# Bootanimation, non-jpegOptimized
+PRODUCT_COPY_FILES += \
+    device/samsung/epicmtd/prebuilt/media/480.zip:system/media/bootanimation.zip
+
 # Inherit some common Carbon stuff.
 $(call inherit-product, vendor/carbon/config/common_phone.mk)
 
