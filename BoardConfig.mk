@@ -14,7 +14,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a8
-ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CPU_VARIANT := cortex-a8
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -22,6 +22,8 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := s5pc110
 TARGET_BOARD_PLATFORM_GPU := POWERVR_SGX540_120
 TARGET_BOOTLOADER_BOARD_NAME := s5pc110
+
+TARGET_ARCH_LOWMEM := true
 
 # Provide our own libaudio
 TARGET_PROVIDES_LIBAUDIO := true
@@ -108,7 +110,27 @@ BOARD_RECOVERY_HANDLES_MOUNT := true
 BOARD_USES_BML_OVER_MTD := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/samsung/epicmtd/recovery_ui.c
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/epicmtd/shbootimg.mk
+TARGET_RECOVERY_FSTAB := device/samsung/epicmtd/fstab.victory
+RECOVERY_FSTAB_VERSION := 2
 TARGET_OTA_ASSERT_DEVICE := epic,epicmtd,SPH-D700
 
 # RIL
 BOARD_RIL_CLASS := "../../../device/samsung/epicmtd/epicril/"
+
+BOARD_SEPOLICY_DIRS := \
+        device/samsung/epicmtd/sepolicy
+
+BOARD_SEPOLICY_UNION := \
+	device.te \
+	domain.te \
+	file_contexts \
+	file.te \
+	init.te \
+	pvrsrvinit.te \
+	rild.te \
+	system.te \
+	wimax.te \
+	wpa_supplicant.te
+
+# Hardware tunables
+BOARD_HARDWARE_CLASS := device/samsung/epicmtd/cmhw/

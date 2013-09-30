@@ -25,12 +25,12 @@ DEVICE_PACKAGE_OVERLAYS := device/samsung/epicmtd/overlay
 # These are the hardware-specific configuration files
 PRODUCT_COPY_FILES := \
     device/samsung/epicmtd/prebuilt/etc/asound.conf:system/etc/asound.conf \
-    device/samsung/epicmtd/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     device/samsung/epicmtd/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/samsung/epicmtd/prebuilt/etc/egl.cfg:system/lib/egl/egl.cfg
 
 # Init files
 PRODUCT_COPY_FILES += \
+  device/samsung/epicmtd/fstab.victory:root/fstab.victory \
   device/samsung/epicmtd/ueventd.victory.rc:root/ueventd.victory.rc \
   device/samsung/epicmtd/lpm.rc:root/lpm.rc \
   device/samsung/epicmtd/init.victory.rc:root/init.victory.rc \
@@ -82,7 +82,6 @@ PRODUCT_COPY_FILES += \
 
 # update utilities
 PRODUCT_PACKAGES += \
-	make_ext4fs \
 	bml_over_mtd \
 	setup_fs
 
@@ -160,7 +159,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # be reachable from resources or other mechanisms.
 PRODUCT_PROPERTY_OVERRIDES += \
        wifi.interface=wlan0 \
-       wifi.supplicant_scan_interval=20
+       wifi.supplicant_scan_interval=20 \
+       ro.bq.gpu_to_cpu_unsupported=1
+
+# SGX540 is slower with the scissor optimization enabled
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.hwui.disable_scissor_opt=true
 
 # enable Google-specific location features,
 # like NetworkLocationProvider and LocationCollector
